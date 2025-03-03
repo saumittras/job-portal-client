@@ -1,15 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../../context/AuthContext/AuthContext";
+import logo from "../../assets/jobslogo.png";
 
 const Navbar = () => {
+  const { user, userSignut } = useContext(AuthContext);
   const links = (
     <>
       <li>
-        <a>Item 1</a>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
-
       <li>
-        <a>Item 3</a>
+        <NavLink to={"/"}>All Jobs</NavLink>
+      </li>{" "}
+      <li>
+        <NavLink to={"/"}>My Jobs</NavLink>
+      </li>{" "}
+      <li>
+        <NavLink to={"/"}>Profile</NavLink>
       </li>
     </>
   );
@@ -42,18 +50,34 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Link to={"/"} className="btn btn-ghost text-xl">
+            <img className="w-12" src={logo} alt="" />
+            <h3 className="text-3xl bg-slate-700 px-1 py-2 rounded-xl">
+              Job
+              <span className="bg-amber-600  p-1 rounded-xl">HUB</span>
+            </h3>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <Link to={"/register"} className="btn">
-            Register
-          </Link>
-          <Link to={"/signin"} className="btn">
-            Sign In
-          </Link>
+          {user ? (
+            <>
+              <button onClick={userSignut} className="btn">
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to={"/register"} className="btn">
+                Register
+              </Link>
+              <Link to={"/signin"} className="btn">
+                Sign In
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
