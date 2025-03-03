@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import signinLottieData from "../../assets/login.json";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import SocialLogin from "../sheared/SocialLogin";
 
 const Signin = () => {
   const { loginUser, loading } = useContext(AuthContext);
@@ -54,6 +55,7 @@ const Signin = () => {
               </fieldset>
             </div>
           </form>
+          <SocialLogin />
         </div>
       </div>
     </div>
