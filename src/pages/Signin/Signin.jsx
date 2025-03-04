@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import signinLottieData from "../../assets/login.json";
