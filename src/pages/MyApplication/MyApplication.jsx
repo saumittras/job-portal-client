@@ -16,27 +16,25 @@ const MyApplications = () => {
       <h2 className="text-3xl">My App: {jobs.length}</h2>
 
       <div>
+        {/* new table */}
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
             <thead>
               <tr>
-                <th>
-                  <h2>SL No</h2>
-                </th>
+                <th>SL No</th>
                 <th>Name</th>
                 <th>Job</th>
-                <th>Favorite Color</th>
-                <th></th>
+                <th>Details</th>
+                <th>Action</th>
               </tr>
             </thead>
 
-            <tbody>
-              {jobs.map((job, idx) => (
-                <tr key={idx}>
-                  <th>
-                    <label>{idx + 1}</label>
-                  </th>
+            {jobs?.map((job, idx) => (
+              <tbody key={idx}>
+                {/* row 1 */}
+                <tr>
+                  <th>{idx + 1}</th>
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
@@ -48,7 +46,7 @@ const MyApplications = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold">{job.title}</div>
+                        <div className="font-bold">{job.company}</div>
                         <div className="text-sm opacity-50">{job.location}</div>
                       </div>
                     </div>
@@ -62,11 +60,11 @@ const MyApplications = () => {
                   </td>
                   <td>Purple</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <button className="btn btn-ghost btn-xs">X</button>
                   </th>
                 </tr>
-              ))}
-            </tbody>
+              </tbody>
+            ))}
           </table>
         </div>
       </div>

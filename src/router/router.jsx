@@ -7,6 +7,7 @@ import JobDetails from "../pages/JobDetails/JobDetails";
 import PrivateRoute from "./PrivateRoute";
 import JobApply from "../pages/JobApply/JobApply";
 import MyApplications from "../pages/MyApplication/MyApplication";
+import AddJob from "../pages/AddJob/AddJobs";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             <MyApplications />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/addjob",
+        element: <AddJob />,
       },
     ],
   },

@@ -12,12 +12,12 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to={"/"}>All Jobs</NavLink>
-      </li>{" "}
+      </li>
       <li>
         <NavLink to={"/myApplications"}>My Applications</NavLink>
-      </li>{" "}
+      </li>
       <li>
-        <NavLink to={"/"}>Profile</NavLink>
+        <NavLink to={"/addjob"}>Add Job</NavLink>
       </li>
     </>
   );
