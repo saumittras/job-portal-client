@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
 const JobApply = () => {
   const { id } = useParams();
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const naviget = useNavigate();
   console.log(id, user);
   const submitJobApplication = (e) => {
@@ -18,13 +19,13 @@ const JobApply = () => {
 
     const jobApplication = {
       job_id: id,
-      applicant_email: user.email,
+      applicant_email: user?.email,
       linkedIn,
       github,
       resume,
     };
 
-    fetch("http://localhost:5000/job-applications", {
+    fetch("http://localhost:3000/job-applications", {
       method: "POST",
       headers: {
         "content-type": "application/json",
