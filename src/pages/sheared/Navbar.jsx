@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import AuthContext from "../../context/AuthContext/AuthContext";
 import logo from "../../assets/jobslogo.png";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Navbar = () => {
   const { user, userSignut } = useContext(AuthContext);
@@ -18,6 +18,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to={"/addjob"}>Add Job</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/myPostedJobs"}>My Posted Jobs</NavLink>
       </li>
     </>
   );
