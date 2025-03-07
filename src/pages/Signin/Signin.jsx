@@ -1,10 +1,12 @@
-/* eslint-disable no-unused-vars */
-import React, { useContext } from "react";
+import axios from 'axios';
 import Lottie from "lottie-react";
+import React, { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import signinLottieData from "../../assets/login.json";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import SocialLogin from "../sheared/SocialLogin";
-import { useLocation, useNavigate } from "react-router-dom";
+
+
 
 const Signin = () => {
   const { loginUser, loading } = useContext(AuthContext);
@@ -23,7 +25,11 @@ const Signin = () => {
     loginUser(email, password)
       .then((result) => {
         console.log("user Logedin Successfully", result.user);
-        naviget(from);
+        // naviget(from);
+        const user = {email: result.user.email}
+        axios.post('http://localhost:3000/jwt', user, {withCredentials: true})
+        .then(res=>console.log(res.data))
+        
       })
       .catch((error) => {
         console.log(error);
