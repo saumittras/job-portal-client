@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import HotJobCard from "./HotJobCard";
 
 const HotJobs = () => {
   const [jobs, setJobs] = useState([]);
+  const axiosSecure = useAxiosSecure()
 
   useEffect(() => {
-    fetch("http://localhost:3000/jobs")
-      .then((res) => res.json())
-      .then((data) => setJobs(data));
+    // fetch("http://localhost:3000/jobs")
+    //   .then((res) => res.json())
+    //   .then((data) => setJobs(data));
+    axiosSecure.get('/jobs')
+    .then(result=>{
+      console.log(result.data)
+      setJobs(result.data)
+    })
+
   }, []);
   return (
     <div>

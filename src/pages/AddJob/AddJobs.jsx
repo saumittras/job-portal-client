@@ -28,6 +28,7 @@ const AddJob = () => {
     })
     .then(res=>res.json())
     .then(data=>{
+      console.log(data)
        if (data.insertedId) {
 
                 Swal.fire({
@@ -38,7 +39,7 @@ const AddJob = () => {
                   timer: 1500,
                 });
 
-                naviget('/myPostedJobs')
+                // naviget('/myPostedJobs')
               }
     })
   };
@@ -232,6 +233,7 @@ const AddJob = () => {
                     defaultValue={user?.email}
                     className="input w-full"
                     placeholder="HR email"
+                    disabled
                   />
                 </div>
               </div>

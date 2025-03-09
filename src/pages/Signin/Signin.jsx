@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -19,22 +18,20 @@ const Signin = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
+    // console.log(email, password);
     // password validation
     //show password validation error
+    
     loginUser(email, password)
-      .then((result) => {
-        console.log("user Logedin Successfully", result.user);
-        // naviget(from);
-        const user = {email: result.user.email}
-        axios.post('http://localhost:3000/jwt', user, {withCredentials: true})
-        .then(res=>console.log(res.data))
-        
-      })
-      .catch((error) => {
+    .then(result => {
+        console.log('sign in', result.user)
+        naviget(from);
+    })
+    .catch(error => {
         console.log(error);
-      });
-  };
+    })
+  }
 
   return (
     <div className="hero bg-base-200 min-h-screen">
